@@ -14,7 +14,7 @@ import { Button, Chip, Typography } from '@mui/material'
 
 import { mockTeam } from '../../mock'
 
-export const TeamCard: FC<TeamCardProps> = ({ index, actionDelete }) => (
+export const TeamCard: FC<TeamCardProps> = ({ index }) => (
   <CardContainer>
     <InfoContainer>
       <TitleContainer>
@@ -41,7 +41,9 @@ export const TeamCard: FC<TeamCardProps> = ({ index, actionDelete }) => (
       <Button variant={'text'} color={'inherit'}>
         Edit
       </Button>
-      {actionDelete}
+      <Button variant={'text'} color={'inherit'}>
+        Delete
+      </Button>
     </ActionsContainer>
   </CardContainer>
 )
