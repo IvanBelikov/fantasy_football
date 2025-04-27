@@ -1,9 +1,7 @@
-import { Box, Chip } from '@mui/material'
+import { Avatar, Box, Chip } from '@mui/material'
 import { grey } from '@mui/material/colors'
 
-import styled from 'styled-components'
-
-import type { ImageProps } from '@base/types'
+import { styled } from '@mui/material/styles'
 
 export const CardContainer = styled(Box)({
   display: 'flex',
@@ -33,7 +31,7 @@ export const PlayerDetails = styled(Box)({
   gap: '16px',
 })
 
-export const PlayerImage = styled(Box)<ImageProps>({
+export const PlayerImage = styled(Avatar)({
   width: '40px',
   height: '40px',
   objectFit: 'contain',
@@ -59,7 +57,7 @@ export const StyledChip = styled(Chip)({
   width: 'fit-content',
 })
 
-export const AffiliationLogo = styled(Box)<ImageProps>({
+export const AffiliationLogo = styled(Avatar)({
   width: 18,
   height: 18,
 })

@@ -21,11 +21,7 @@ export const TeamStatsCard = () => {
     <CardContainer>
       <HeaderContainer>
         <TeamInfoContainer>
-          <TeamLogo
-            component={'img'}
-            src={mockTeam.team.logo}
-            alt={'Team logo'}
-          />
+          <TeamLogo src={mockTeam.team.logo} alt={'Team logo'} />
           <TeamInfo>
             <Typography>{mockTeam.team.name}</Typography>
             <Typography color={'textSecondary'} variant={'subtitle2'}>
@@ -36,19 +32,13 @@ export const TeamStatsCard = () => {
         <Chip
           size={'small'}
           label={'UEFA Champions League'}
-          icon={
-            <LeagueLogo
-              component={'img'}
-              src={mockTeam.league.logo}
-              alt={'League logo'}
-            />
-          }
+          icon={<LeagueLogo src={mockTeam.league.logo} alt={'League logo'} />}
         />
       </HeaderContainer>
       <Divider />
       <StadiumContainer>
         <StadiumLogo
-          component={'img'}
+          variant={'rounded'}
           src={mockTeam.venue.image}
           alt={'Stadium logo'}
         />

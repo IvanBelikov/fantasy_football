@@ -32,11 +32,7 @@ export const PlayerStatsCard = () => {
     <CardContainer>
       <PlayerInfo>
         <PlayerDetails>
-          <PlayerImage
-            component={'img'}
-            src={mockPlayer.player.photo}
-            alt={'Player image'}
-          />
+          <PlayerImage src={mockPlayer.player.photo} alt={'Player image'} />
           <Info>
             <Typography>{mockPlayer.player.name}</Typography>
             <Typography variant={'subtitle2'} color={'info'}>
@@ -58,11 +54,7 @@ export const PlayerStatsCard = () => {
             size={'small'}
             label={mockPlayer.team.name}
             icon={
-              <AffiliationLogo
-                component={'img'}
-                src={mockPlayer.team.logo}
-                alt={'Team logo'}
-              />
+              <AffiliationLogo src={mockPlayer.team.logo} alt={'Team logo'} />
             }
           />
           <StyledChip
@@ -70,7 +62,6 @@ export const PlayerStatsCard = () => {
             label={mockPlayer.league.name}
             icon={
               <AffiliationLogo
-                component={'img'}
                 src={mockPlayer.league.logo}
                 alt={'League logo'}
               />

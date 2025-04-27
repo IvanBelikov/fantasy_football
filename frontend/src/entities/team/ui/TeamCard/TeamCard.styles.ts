@@ -1,8 +1,7 @@
-import { Box, Typography } from '@mui/material'
+import { Avatar, Box, Typography } from '@mui/material'
 import { grey } from '@mui/material/colors'
-import styled from 'styled-components'
 
-import type { ImageProps } from '@base/types'
+import { styled } from '@mui/material/styles'
 
 export const CardContainer = styled(Box)(({ theme }) => ({
   width: '100%',
@@ -42,7 +41,7 @@ export const IndexTypography = styled(Typography)({
   textAlign: 'center',
 })
 
-export const FlagLogo = styled(Box)<ImageProps>({
+export const FlagLogo = styled(Avatar)({
   width: '16px',
   height: '16px',
   objectFit: 'contain',

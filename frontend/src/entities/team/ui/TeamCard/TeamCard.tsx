@@ -25,11 +25,7 @@ export const TeamCard: FC<TeamCardProps> = ({ index }) => (
         <Chip
           label={mockTeam.league.country.name}
           icon={
-            <FlagLogo
-              component={'img'}
-              src={mockTeam.league.country.flag}
-              alt={'Country flag'}
-            />
+            <FlagLogo src={mockTeam.league.country.flag} alt={'Country flag'} />
           }
         />
       </TitleContainer>
