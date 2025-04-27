@@ -48,8 +48,7 @@
       "semicolons": "asNeeded",
       "arrowParentheses": "always",
       "bracketSpacing": true,
-      "bracketSameLine": false,
-      "attributePosition": "auto"
+      "bracketSameLine": false
     }
   }
 }
