@@ -1,6 +1,7 @@
 import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 
 import { StatsTable } from '@base/ui'
+import { GRID_SIZE } from '@base/constants'
 
 import { mockPlayer } from '../mock'
 import {
@@ -26,7 +27,7 @@ export const PlayerStatsCard = () => {
   const theme = useTheme()
   const isMobile = useMediaQuery(theme.breakpoints.down('md'))
 
-  const gridSize = isMobile ? 12 : 6
+  const gridSize = isMobile ? GRID_SIZE.FULL : GRID_SIZE.HALF
 
   return (
     <CardContainer>
