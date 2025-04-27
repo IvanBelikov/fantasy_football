@@ -1,16 +1,12 @@
-import { Avatar, Box, Typography } from '@mui/material'
-import { grey } from '@mui/material/colors'
+import { Avatar, Box, Card, Typography } from '@mui/material'
 
 import { styled } from '@mui/material/styles'
 
-export const CardContainer = styled(Box)(({ theme }) => ({
+export const CardContainer = styled(Card)(({ theme }) => ({
   width: '100%',
   display: 'flex',
   justifyContent: 'space-between',
   alignItems: 'center',
-  backgroundColor: grey[50],
-  border: '1px solid',
-  borderColor: grey[300],
   padding: '16px',
   [theme.breakpoints.down('sm')]: {
     justifyContent: 'start',
