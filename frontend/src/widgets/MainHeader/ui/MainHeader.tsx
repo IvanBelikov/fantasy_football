@@ -1,6 +1,6 @@
-import { Tabs } from '@mui/material'
+import { Tabs, Button } from '@mui/material'
 
-import { LogoutButton } from '@base/features'
+import { ExitToApp } from '@mui/icons-material'
 
 import {
   HeaderContainer,
@@ -17,7 +17,9 @@ export const MainHeader = () => {
       <Level isTop={true}>
         <ContentContainer>
           <LogoTypography>Fantasy league</LogoTypography>
-          <LogoutButton />
+          <Button variant={'contained'} endIcon={<ExitToApp />}>
+            Logout
+          </Button>
         </ContentContainer>
       </Level>
       <Level>
