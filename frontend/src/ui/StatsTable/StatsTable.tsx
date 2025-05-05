@@ -38,7 +38,9 @@ export const StatsTable: FC<StatsTableProps> = ({ header, body, title }) => (
         <StyledTableBody>
           <TableRow>
             {body.map((value, i) => (
-              <TableCell key={header[i]}>{value}</TableCell>
+              <TableCell key={header[i]}>
+                {value !== null ? value : '-'}
+              </TableCell>
             ))}
           </TableRow>
         </StyledTableBody>

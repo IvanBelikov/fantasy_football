@@ -43,3 +43,5 @@ export const TeamWithStatsSchema = z.object({
 })
 
 export type TeamWithStats = z.infer<typeof TeamWithStatsSchema>
+export type Team = z.infer<typeof TeamSchema>
+export type Country = z.infer<typeof CountrySchema>

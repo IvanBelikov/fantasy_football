@@ -1,9 +1,11 @@
-import { Chip, Divider, Typography } from '@mui/material'
+import type { FC } from 'react'
+
+import { Avatar, Chip, Divider, Typography } from '@mui/material'
 
 import { StatsTable } from '@base/ui'
 
 import { tableHeaders } from '../config'
-import { mockTeam } from '../mock'
+import { mockTeam } from '../../../widgets/TeamsList/mock'
 import {
   CardContainer,
   HeaderContainer,
@@ -16,50 +18,56 @@ import {
   StadiumInfo,
 } from './TeamStatsCard.styles'
 
-export const TeamStatsCard = () => {
+import type { TeamStatsCardProps } from './TeamStatsCard.props'
+
+export const TeamStatsCard: FC<TeamStatsCardProps> = ({ stats }) => {
   return (
     <CardContainer>
       <HeaderContainer>
         <TeamInfoContainer>
-          <TeamLogo src={mockTeam.team.logo} alt={'Team logo'} />
+          <TeamLogo src={stats.team.logo} alt={'Team logo'} />
           <TeamInfo>
             <Typography>{mockTeam.team.name}</Typography>
             <Typography color={'textSecondary'} variant={'subtitle2'}>
-              Founded: {mockTeam.team.founded}
+              Founded: {stats.team.founded}
             </Typography>
           </TeamInfo>
         </TeamInfoContainer>
         <Chip
           size={'small'}
           label={'UEFA Champions League'}
-          icon={<LeagueLogo src={mockTeam.league.logo} alt={'League logo'} />}
+          icon={<LeagueLogo src={stats.league.logo} alt={'League logo'} />}
         />
       </HeaderContainer>
       <Divider />
       <StadiumContainer>
-        <StadiumLogo
-          variant={'rounded'}
-          src={mockTeam.venue.image}
-          alt={'Stadium logo'}
-        />
+        {stats.venue.image ? (
+          <StadiumLogo
+            variant={'rounded'}
+            src={stats.venue.image}
+            alt={'Stadium logo'}
+          />
+        ) : (
+          <Avatar>T</Avatar>
+        )}
         <StadiumInfo>
-          <Typography>{mockTeam.venue.name}</Typography>
+          <Typography>{stats.venue.name}</Typography>
           <Typography color={'textSecondary'} variant={'subtitle2'}>
-            {`${mockTeam.venue.address}, ${mockTeam.league.country.name}`}
+            {`${stats.venue.address}, ${stats.league.country.name}`}
           </Typography>
           <Typography color={'info'} variant={'subtitle2'}>
-            Capacity: {mockTeam.venue.capacity}
+            Capacity: {stats.venue.capacity}
           </Typography>
         </StadiumInfo>
       </StadiumContainer>
       <StatsTable
         header={tableHeaders}
         body={[
-          mockTeam.stats.played,
-          mockTeam.stats.wins,
-          mockTeam.stats.draws,
-          mockTeam.stats.loses,
-          mockTeam.stats.goals,
+          stats.stats.played,
+          stats.stats.wins,
+          stats.stats.draws,
+          stats.stats.loses,
+          stats.stats.goals,
         ]}
       />
     </CardContainer>

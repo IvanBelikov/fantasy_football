@@ -12,25 +12,21 @@ import {
 import type { TeamCardProps } from './TeamCard.props'
 import { Button, Chip, Typography } from '@mui/material'
 
-import { mockTeam } from '../mock'
-
-export const TeamCard: FC<TeamCardProps> = ({ index }) => (
+export const TeamCard: FC<TeamCardProps> = ({ index, data }) => (
   <CardContainer variant={'outlined'}>
     <InfoContainer>
       <TitleContainer>
         <TextContainer>
           <IndexTypography variant={'subtitle2'}>{index}.</IndexTypography>
-          <Typography variant={'subtitle2'}>{mockTeam.team.name}</Typography>
+          <Typography variant={'subtitle2'}>{data.team.name}</Typography>
         </TextContainer>
         <Chip
-          label={mockTeam.league.country.name}
-          icon={
-            <FlagLogo src={mockTeam.league.country.flag} alt={'Country flag'} />
-          }
+          label={data.country.name}
+          icon={<FlagLogo src={data.country.flag} alt={'Country flag'} />}
         />
       </TitleContainer>
       <Typography variant={'subtitle2'} color={'primary'}>
-        Total points: {mockTeam.stats.totalPoints}
+        Total points: {data.totalPoints}
       </Typography>
     </InfoContainer>
     <ActionsContainer>

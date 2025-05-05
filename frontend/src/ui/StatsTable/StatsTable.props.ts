@@ -1,4 +1,4 @@
-type BodyContext = (string | number)[]
+type BodyContext = (string | number | null)[]
 
 export type StatsTableProps = {
   header: string[]

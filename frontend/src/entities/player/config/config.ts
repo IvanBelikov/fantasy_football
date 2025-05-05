@@ -1,10 +1,4 @@
-export const gamesHeader = [
-  'Appearance',
-  'Position',
-  'Rating',
-  'Captain',
-  'Losses',
-]
+export const gamesHeader = ['Appearance', 'Position', 'Rating', 'Captain']
 
 export const goalsHeader = ['Total', 'Conceded', 'Assists', 'Saves']
 
