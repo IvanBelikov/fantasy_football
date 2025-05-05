@@ -17,12 +17,14 @@ export const CardContainer = styled(Box)({
 export const HeaderContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   justifyContent: 'space-between',
+  flexDirection: 'column-reverse',
   alignItems: 'start',
   paddingTop: '16px',
   paddingBottom: '16px',
-  [theme.breakpoints.down('sm')]: {
-    flexDirection: 'column-reverse',
-    gap: '8px',
+  gap: '8px',
+  [theme.breakpoints.up('sm')]: {
+    flexDirection: 'row',
+    gap: '0px',
   },
 }))
 

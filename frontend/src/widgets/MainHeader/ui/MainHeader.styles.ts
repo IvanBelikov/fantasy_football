@@ -27,12 +27,12 @@ export const ContentContainer = styled(Container)({
 })
 
 export const TabsContainer = styled(Container)(({ theme }) => ({
-  display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
-  [theme.breakpoints.down('md')]: {
-    display: 'block',
-    padding: 0,
+  display: 'block',
+  padding: '0',
+  [theme.breakpoints.up('md')]: {
+    justifyContent: 'space-between',
+    display: 'flex',
+    alignItems: 'center',
   },
 }))
 

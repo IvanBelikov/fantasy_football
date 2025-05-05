@@ -5,13 +5,14 @@ import { styled } from '@mui/material/styles'
 export const CardContainer = styled(Card)(({ theme }) => ({
   width: '100%',
   display: 'flex',
-  justifyContent: 'space-between',
-  alignItems: 'center',
+  justifyContent: 'start',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
   padding: '16px',
-  [theme.breakpoints.down('sm')]: {
-    justifyContent: 'start',
-    alignItems: 'flex-start',
-    flexDirection: 'column',
+  [theme.breakpoints.up('sm')]: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row',
   },
 }))
 
