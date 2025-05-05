@@ -3,7 +3,7 @@ import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
 import { StatsTable } from '@base/ui'
 import { GRID_SIZE } from '@base/constants'
 
-import { mockPlayer } from '../mock'
+import { mockPlayer } from './mock'
 import {
   cardsHeader,
   duelsHeader,
@@ -11,7 +11,7 @@ import {
   goalsHeader,
   passesHeader,
   penaltyHeader,
-} from '../config'
+} from './config'
 import {
   AffiliationContainer,
   AffiliationLogo,

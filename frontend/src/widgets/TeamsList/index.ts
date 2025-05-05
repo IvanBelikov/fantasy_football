@@ -1,1 +1,1 @@
-export { TeamsList } from './ui'
+export { TeamsList } from './TeamsList'

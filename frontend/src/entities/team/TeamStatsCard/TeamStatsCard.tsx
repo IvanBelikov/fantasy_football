@@ -2,8 +2,8 @@ import { Chip, Divider, Typography } from '@mui/material'
 
 import { StatsTable } from '@base/ui'
 
-import { tableHeaders } from '../../config'
-import { mockTeam } from '../../mock'
+import { tableHeaders } from '../config'
+import { mockTeam } from '../mock'
 import {
   CardContainer,
   HeaderContainer,

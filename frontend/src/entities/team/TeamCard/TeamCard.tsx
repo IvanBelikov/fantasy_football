@@ -12,7 +12,7 @@ import {
 import type { TeamCardProps } from './TeamCard.props'
 import { Button, Chip, Typography } from '@mui/material'
 
-import { mockTeam } from '../../mock'
+import { mockTeam } from '../mock'
 
 export const TeamCard: FC<TeamCardProps> = ({ index }) => (
   <CardContainer variant={'outlined'}>

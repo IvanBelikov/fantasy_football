@@ -1,1 +1,2 @@
-export { TeamStatsCard, TeamCard } from './ui'
+export { TeamStatsCard } from './TeamStatsCard'
+export { TeamCard } from './TeamCard'
