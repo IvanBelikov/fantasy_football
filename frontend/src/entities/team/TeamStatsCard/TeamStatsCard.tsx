@@ -5,7 +5,7 @@ import { Avatar, Chip, Divider, Typography } from '@mui/material'
 import { StatsTable } from '@base/ui'
 
 import { tableHeaders } from '../config'
-import { mockTeam } from '../../../widgets/TeamsList/mock'
+
 import {
   CardContainer,
   HeaderContainer,
@@ -27,7 +27,7 @@ export const TeamStatsCard: FC<TeamStatsCardProps> = ({ stats }) => {
         <TeamInfoContainer>
           <TeamLogo src={stats.team.logo} alt={'Team logo'} />
           <TeamInfo>
-            <Typography>{mockTeam.team.name}</Typography>
+            <Typography>{stats.team.name}</Typography>
             <Typography color={'textSecondary'} variant={'subtitle2'}>
               Founded: {stats.team.founded}
             </Typography>
