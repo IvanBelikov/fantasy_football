@@ -1,6 +1,6 @@
 import type { FC } from 'react'
 
-import { Avatar, Chip, Divider, Typography } from '@mui/material'
+import { Chip, Divider, Typography } from '@mui/material'
 
 import { StatsTable } from '@base/ui'
 
@@ -41,14 +41,12 @@ export const TeamStatsCard: FC<TeamStatsCardProps> = ({ stats }) => {
       </HeaderContainer>
       <Divider />
       <StadiumContainer>
-        {stats.venue.image ? (
+        {stats.venue.image && (
           <StadiumLogo
             variant={'rounded'}
             src={stats.venue.image}
             alt={'Stadium logo'}
           />
-        ) : (
-          <Avatar>T</Avatar>
         )}
         <StadiumInfo>
           <Typography>{stats.venue.name}</Typography>

@@ -1,12 +1,7 @@
 import type { FC } from 'react'
 
-import {
-  Avatar,
-  Grid,
-  Typography,
-  useMediaQuery,
-  useTheme,
-} from '@mui/material'
+import { Grid, Typography, useMediaQuery, useTheme } from '@mui/material'
+import { ImageNotSupported } from '@mui/icons-material'
 
 import { StatsTable } from '@base/ui'
 import { GRID_SIZE } from '@base/constants'
@@ -64,22 +59,21 @@ export const PlayerStatsCard: FC<PlayerWithStatsProps> = ({ stats }) => {
             size={'small'}
             label={stats.team.name}
             icon={
-              stats.team.logo ? (
-                <AffiliationLogo src={stats.team.logo} alt={'Team logo'} />
-              ) : (
-                <Avatar>T</Avatar>
-              )
+              <AffiliationLogo src={stats.team.logo || ''} alt={'Team logo'}>
+                <ImageNotSupported />
+              </AffiliationLogo>
             }
           />
           <StyledChip
             size={'small'}
             label={stats.league.name}
             icon={
-              stats.league.logo ? (
-                <AffiliationLogo src={stats.league.logo} alt={'League logo'} />
-              ) : (
-                <Avatar>T</Avatar>
-              )
+              <AffiliationLogo
+                src={stats.league.logo || ''}
+                alt={'League logo'}
+              >
+                <ImageNotSupported />
+              </AffiliationLogo>
             }
           />
         </AffiliationContainer>
