@@ -7,6 +7,10 @@ import swagger from '@fastify/swagger'
 import swaggerUI from '@fastify/swagger-ui'
 import teamRoutes from './routes/teamRoutes.ts'
 import playerRoutes from './routes/playersRoutes.ts'
+import authRoutes from './routes/authRoutes.ts'
+import countryRoutes from './routes/countryRoutes.ts';
+import seasonRoutes from './routes/seasonRoutes.ts';
+import { ZodError } from 'zod'
 import './models/index.ts'
 
 dotenv.config()
@@ -20,6 +24,7 @@ await app.register(cors, {
   origin: (origin, cb) => {
     const allowedOrigins = [
       'http://localhost:4200',
+      'http://localhost:3000'
     ]
 
     const isAllowed =
@@ -55,6 +60,21 @@ await app.register(swaggerUI, {
   routePrefix: '/docs',
 })
 
+app.setErrorHandler((error, request, reply) => {
+  if (error instanceof ZodError) {
+    return reply.status(400).send({
+      error: 'Validation failed',
+      details: error.errors.map((e) => ({
+        field: e.path.join('.'),
+        message: e.message,
+      })),
+    });
+  }
+
+  request.log.error(error);
+  reply.status(error.statusCode || 500).send({ error: error.message });
+});
+
 app.get('/ping', async () => {
   return { message: 'pong' }
 })
@@ -63,8 +83,11 @@ app.get('/', async () => {
   return { status: 'ok', message: 'Fantasy Football backend is running 🚀 🚀 🚀 🚀' }
 })
 
+app.register(authRoutes);
 app.register(teamRoutes)
 app.register(playerRoutes)
+app.register(countryRoutes);
+app.register(seasonRoutes);
 
 const start = async () => {
   try {
