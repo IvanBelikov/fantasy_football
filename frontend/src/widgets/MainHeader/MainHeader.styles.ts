@@ -1,9 +1,20 @@
-import { Box, Container, styled, Tab, Typography } from '@mui/material'
+import {
+  Box,
+  Container,
+  styled,
+  Tab,
+  type TabProps,
+  Typography,
+} from '@mui/material'
 
 import { grey } from '@mui/material/colors'
 
 type LevelProps = {
   isTop?: boolean
+}
+
+interface CustomTabProps extends TabProps {
+  to: string
 }
 
 export const HeaderContainer = styled(Box)({
@@ -44,6 +55,6 @@ export const LogoTypography = styled(Typography)({
   letterSpacing: 0,
 })
 
-export const CustomTab = styled(Tab)({
+export const CustomTab = styled(Tab)<CustomTabProps>({
   width: '268px',
 })

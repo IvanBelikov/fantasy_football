@@ -1,6 +1,12 @@
-import { Tabs, Button } from '@mui/material'
+import { type FC, useState } from 'react'
+import { Link, useLocation } from 'react-router'
 
+import { Tabs, Button } from '@mui/material'
 import { ExitToApp } from '@mui/icons-material'
+
+import { AUTH_ROUTES } from '@base/constants'
+
+import { getTabValue } from './utils'
 
 import {
   HeaderContainer,
@@ -10,8 +16,15 @@ import {
   CustomTab,
   TabsContainer,
 } from './MainHeader.styles'
+import type { MainHeaderProps } from './MainHeader.props'
 
-export const MainHeader = () => {
+export const MainHeader: FC<MainHeaderProps> = ({ showSubheader }) => {
+  const location = useLocation()
+
+  const [tabValue, setTabValue] = useState(getTabValue(location.pathname))
+
+  const handleChange = (_: unknown, newValue: number) => setTabValue(newValue)
+
   return (
     <HeaderContainer>
       <Level isTop={true}>
@@ -22,14 +35,30 @@ export const MainHeader = () => {
           </Button>
         </ContentContainer>
       </Level>
-      <Level>
-        <TabsContainer>
-          <Tabs value={1} variant={'fullWidth'}>
-            <CustomTab label={'Statistics'} value={1} />
-            <CustomTab label={'Fantasy Teams'} value={2} />
-          </Tabs>
-        </TabsContainer>
-      </Level>
+      {showSubheader && (
+        <Level>
+          <TabsContainer>
+            <Tabs
+              onChange={handleChange}
+              value={tabValue}
+              variant={'fullWidth'}
+            >
+              <CustomTab
+                component={Link}
+                label={'Statistics'}
+                value={1}
+                to={AUTH_ROUTES.STATISTICS.PATH}
+              />
+              <CustomTab
+                component={Link}
+                label={'Fantasy Teams'}
+                value={2}
+                to={AUTH_ROUTES.TEAMS.PATH}
+              />
+            </Tabs>
+          </TabsContainer>
+        </Level>
+      )}
     </HeaderContainer>
   )
 }
