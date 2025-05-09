@@ -1,8 +1,9 @@
-import { Box } from '@mui/material'
-import { MainLayout } from './layouts'
+import { AuthRouterProvider, PublicRouterProvider } from './router'
 
-export const App = () => (
-  <Box>
-    <MainLayout />
-  </Box>
-)
+export const App = () => {
+  const isAuth = true
+
+  const RouterProvider = isAuth ? AuthRouterProvider : PublicRouterProvider
+
+  return <RouterProvider />
+}

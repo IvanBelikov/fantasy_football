@@ -8,7 +8,7 @@ export const CardContainer = styled(Box)({
   border: '1px solid',
   borderColor: grey[300],
   borderRadius: '4px',
-  maxWidth: '536px',
+  width: '536px',
   paddingLeft: '16px',
   paddingRight: '16px',
   paddingBottom: '16px',
