@@ -6,6 +6,7 @@ import { ExitToApp } from '@mui/icons-material'
 
 import { AUTH_ROUTES } from '@base/constants'
 
+import { TabValues } from './types'
 import { getTabValue } from './utils'
 
 import {
@@ -46,13 +47,13 @@ export const MainHeader: FC<MainHeaderProps> = ({ showSubheader }) => {
               <CustomTab
                 component={Link}
                 label={'Statistics'}
-                value={1}
+                value={TabValues.STATISTICS}
                 to={AUTH_ROUTES.STATISTICS.PATH}
               />
               <CustomTab
                 component={Link}
                 label={'Fantasy Teams'}
-                value={2}
+                value={TabValues.TEAMS}
                 to={AUTH_ROUTES.TEAMS.PATH}
               />
             </Tabs>
