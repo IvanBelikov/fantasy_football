@@ -1,7 +1,7 @@
 import { Avatar, Box } from '@mui/material'
-import { styled } from '@mui/material/styles'
-
 import { grey } from '@mui/material/colors'
+
+import styled from 'styled-components'
 
 export const CardContainer = styled(Box)({
   backgroundColor: grey[50],
@@ -47,8 +47,10 @@ export const TeamInfo = styled(Box)({
 })
 
 export const LeagueLogo = styled(Avatar)({
-  width: '18px',
-  height: '18px',
+  '&&': {
+    width: '18px',
+    height: '18px',
+  },
 })
 
 export const StadiumContainer = styled(Box)({

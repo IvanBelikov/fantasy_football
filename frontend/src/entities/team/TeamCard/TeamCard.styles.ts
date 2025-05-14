@@ -1,6 +1,6 @@
 import { Avatar, Box, Card, Typography } from '@mui/material'
 
-import { styled } from '@mui/material/styles'
+import styled from 'styled-components'
 
 export const CardContainer = styled(Card)(({ theme }) => ({
   width: '100%',
@@ -39,8 +39,10 @@ export const IndexTypography = styled(Typography)({
 })
 
 export const FlagLogo = styled(Avatar)({
-  width: '16px',
-  height: '16px',
+  '&&': {
+    width: '16px',
+    height: '16px',
+  },
   objectFit: 'contain',
 })
 
