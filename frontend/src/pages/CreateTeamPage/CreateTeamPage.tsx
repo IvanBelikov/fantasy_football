@@ -1,3 +1,4 @@
+import { Typography } from '@mui/material'
 import { TeamForm, FormModes } from '@base/widgets'
 
 import { PageContainer } from './CreateTeamPage.styles'
@@ -5,7 +6,7 @@ import { PageContainer } from './CreateTeamPage.styles'
 export const CreateTeamPage = () => {
   return (
     <PageContainer>
-      <h1>Create Team</h1>
+      <Typography variant={'h6'}>Create Team</Typography>
       <TeamForm mode={FormModes.Create} />
     </PageContainer>
   )
