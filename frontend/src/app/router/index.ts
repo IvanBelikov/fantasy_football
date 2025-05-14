@@ -1,1 +1,1 @@
-export { PublicRouterProvider, AuthRouterProvider } from './providers'
+export { AppRouter } from './AppRouter'
