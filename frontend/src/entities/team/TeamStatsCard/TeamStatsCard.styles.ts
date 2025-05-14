@@ -1,14 +1,14 @@
 import { Avatar, Box } from '@mui/material'
-import { styled } from '@mui/material/styles'
-
 import { grey } from '@mui/material/colors'
+
+import styled from 'styled-components'
 
 export const CardContainer = styled(Box)({
   backgroundColor: grey[50],
   border: '1px solid',
   borderColor: grey[300],
   borderRadius: '4px',
-  maxWidth: '536px',
+  width: '536px',
   paddingLeft: '16px',
   paddingRight: '16px',
   paddingBottom: '16px',
@@ -47,8 +47,10 @@ export const TeamInfo = styled(Box)({
 })
 
 export const LeagueLogo = styled(Avatar)({
-  width: '18px',
-  height: '18px',
+  '&&': {
+    width: '18px',
+    height: '18px',
+  },
 })
 
 export const StadiumContainer = styled(Box)({

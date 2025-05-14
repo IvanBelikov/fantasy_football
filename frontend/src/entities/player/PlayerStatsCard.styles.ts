@@ -1,7 +1,7 @@
 import { Avatar, Box, Chip } from '@mui/material'
 import { grey } from '@mui/material/colors'
 
-import { styled } from '@mui/material/styles'
+import styled from 'styled-components'
 
 export const CardContainer = styled(Box)({
   display: 'flex',
@@ -60,6 +60,8 @@ export const StyledChip = styled(Chip)({
 })
 
 export const AffiliationLogo = styled(Avatar)({
-  width: 18,
-  height: 18,
+  '&&': {
+    width: 18,
+    height: 18,
+  },
 })

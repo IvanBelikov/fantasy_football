@@ -1,8 +1,5 @@
-import { Box } from '@mui/material'
-import { MainLayout } from './layouts'
+import { AppRouter } from './router'
 
-export const App = () => (
-  <Box>
-    <MainLayout />
-  </Box>
-)
+export const App = () => {
+  return <AppRouter />
+}

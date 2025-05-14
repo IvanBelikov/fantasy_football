@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from 'react-router'
 
 import { CssBaseline, ThemeProvider } from '@mui/material'
 import { ThemeProvider as ScThemeProvider } from 'styled-components'
@@ -18,7 +19,9 @@ createRoot(root).render(
     <ThemeProvider theme={theme}>
       <ScThemeProvider theme={theme}>
         <CssBaseline />
-        <App />
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
       </ScThemeProvider>
     </ThemeProvider>
   </StrictMode>,
