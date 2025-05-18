@@ -1,4 +1,4 @@
-import { type FC, useState } from 'react'
+import { type FC, useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router'
 
 import { Tabs, Button } from '@mui/material'
@@ -25,6 +25,10 @@ export const MainHeader: FC<MainHeaderProps> = ({ showSubheader }) => {
   const [tabValue, setTabValue] = useState(getTabValue(location.pathname))
 
   const handleChange = (_: unknown, newValue: number) => setTabValue(newValue)
+
+  useEffect(() => {
+    setTabValue(getTabValue(location.pathname))
+  }, [location])
 
   return (
     <HeaderContainer>
