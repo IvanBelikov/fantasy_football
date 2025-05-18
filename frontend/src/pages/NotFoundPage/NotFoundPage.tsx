@@ -8,8 +8,8 @@ import { PageContainer } from './NotFoundPage.styles'
 
 export const NotFoundPage = () => {
   const navigate = useNavigate()
-
   const handleClick = () => navigate(PUBLIC_ROUTES.HOME.PATH)
+
   return (
     <PageContainer>
       <Typography variant={'h2'}>404 Not Found</Typography>
