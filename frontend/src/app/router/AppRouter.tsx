@@ -1,10 +1,11 @@
+import { lazy } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 
-import { PrivateRoutes } from './PrivateRoutes'
-import { lazy } from 'react'
 import { AUTH_ROUTES, PUBLIC_ROUTES } from '@base/constants'
+import { TabValuesEnum } from '@base/pages/StatisticsPage'
 
 import { MainLayout } from '../layouts'
+import { PrivateRoutes } from './PrivateRoutes'
 
 const StatisticsPage = lazy(() => import('@base/pages/StatisticsPage'))
 const TeamsPage = lazy(() => import('@base/pages/TeamsPage'))
@@ -33,7 +34,17 @@ export const AppRouter = () => {
         <Route element={<PrivateRoutes isAuth={isAuth} />}>
           <Route
             path={AUTH_ROUTES.STATISTICS.PATH}
-            element={<StatisticsPage />}
+            element={
+              <Navigate to={AUTH_ROUTES.STATISTICS.TEAMS.PATH} replace />
+            }
+          />
+          <Route
+            path={AUTH_ROUTES.STATISTICS.TEAMS.PATH}
+            element={<StatisticsPage tab={TabValuesEnum.Teams} />}
+          />
+          <Route
+            path={AUTH_ROUTES.STATISTICS.PLAYERS.PATH}
+            element={<StatisticsPage tab={TabValuesEnum.Players} />}
           />
           <Route path={AUTH_ROUTES.TEAMS.PATH} element={<TeamsPage />} />
           <Route

@@ -1,33 +1,16 @@
-import { useState } from 'react'
 import { useSearchParams } from 'react-router'
 
-import type { Nullable } from '@base/types'
-
-import { SearchParamsEnum, SelectedValuesEnum } from '../types'
+import { SearchParamsEnum } from '../types'
 
 export const useStatisticsPage = () => {
   const [searchParams, setSearchParams] = useSearchParams()
-  let selectedParam = searchParams.get(
-    SearchParamsEnum.Selected,
-  ) as Nullable<SelectedValuesEnum>
 
-  if (
-    selectedParam &&
-    !Object.values(SelectedValuesEnum).includes(selectedParam)
-  ) {
-    selectedParam = SelectedValuesEnum.Teams
-  }
-
-  const [selectedYear, setSelectedYear] = useState('')
-  const [selectedTab, setSelectedTab] = useState<SelectedValuesEnum>(
-    selectedParam || SelectedValuesEnum.Teams,
-  )
+  const year = searchParams.get(SearchParamsEnum.Year) || ''
+  const page = searchParams.get(SearchParamsEnum.Page) || '0'
 
   return {
+    year,
+    page,
     setSearchParams,
-    selectedYear,
-    setSelectedYear,
-    selectedTab,
-    setSelectedTab,
   }
 }

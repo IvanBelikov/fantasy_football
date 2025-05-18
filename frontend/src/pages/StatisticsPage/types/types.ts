@@ -1,8 +1,9 @@
 export enum SearchParamsEnum {
-  Selected = 'selected',
+  Year = 'year',
+  Page = 'page',
 }
 
-export enum SelectedValuesEnum {
+export enum TabValuesEnum {
   Teams = 'teams',
   Players = 'players',
 }

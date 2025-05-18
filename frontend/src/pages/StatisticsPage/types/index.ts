@@ -1,1 +1,1 @@
-export { SelectedValuesEnum, SearchParamsEnum } from './types'
+export { TabValuesEnum, SearchParamsEnum } from './types'

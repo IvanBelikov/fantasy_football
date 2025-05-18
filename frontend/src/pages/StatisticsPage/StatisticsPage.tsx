@@ -1,3 +1,5 @@
+import type { FC } from 'react'
+import { useNavigate } from 'react-router'
 import {
   ButtonGroup,
   FormControl,
@@ -7,40 +9,41 @@ import {
 } from '@mui/material'
 
 import { TeamStatsCardsList, PlayerStatsCardsList } from '@base/widgets'
+import { AUTH_ROUTES } from '@base/constants'
 
-import { SearchParamsEnum, SelectedValuesEnum } from './types'
-import { PageContainer, TabButton, YearSelect } from './StatsticsPage.styles'
+import { SearchParamsEnum, TabValuesEnum } from './types'
 import { useStatisticsPage } from './hooks'
 
-export const StatisticsPage = () => {
-  const {
-    setSearchParams,
-    setSelectedTab,
-    setSelectedYear,
-    selectedTab,
-    selectedYear,
-  } = useStatisticsPage()
+import { PageContainer, TabButton, YearSelect } from './StatsticsPage.styles'
+import type { StatisticsPageProps } from './StatisticsPage.props'
 
-  const handleChange = (event: SelectChangeEvent<string>) =>
-    setSelectedYear(event.target.value)
+export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
+  const navigate = useNavigate()
+  const { year, page, setSearchParams } = useStatisticsPage()
 
-  const handleTabClick = (value: SelectedValuesEnum) => {
-    setSelectedTab(value)
-    setSearchParams({ [SearchParamsEnum.Selected]: value })
+  const handleChange = (event: SelectChangeEvent<string>) => {
+    setSearchParams({
+      [SearchParamsEnum.Year]: event.target.value,
+      [SearchParamsEnum.Page]: page,
+    })
+  }
+
+  const handleTabClick = (value: TabValuesEnum) => {
+    navigate(`${AUTH_ROUTES.STATISTICS.PATH}/${value}`)
   }
 
   return (
     <PageContainer>
       <ButtonGroup size={'small'}>
         <TabButton
-          onClick={() => handleTabClick(SelectedValuesEnum.Teams)}
-          isActive={selectedTab === SelectedValuesEnum.Teams}
+          onClick={() => handleTabClick(TabValuesEnum.Teams)}
+          isActive={tab === TabValuesEnum.Teams}
         >
           Teams
         </TabButton>
         <TabButton
-          onClick={() => handleTabClick(SelectedValuesEnum.Players)}
-          isActive={selectedTab === SelectedValuesEnum.Players}
+          onClick={() => handleTabClick(TabValuesEnum.Players)}
+          isActive={tab === TabValuesEnum.Players}
         >
           Players
         </TabButton>
@@ -53,7 +56,7 @@ export const StatisticsPage = () => {
           labelId={'year'}
           label={'Year'}
           size={'small'}
-          value={selectedYear}
+          value={year}
           onChange={handleChange}
         >
           <MenuItem value="">
@@ -65,10 +68,10 @@ export const StatisticsPage = () => {
         </YearSelect>
       </FormControl>
 
-      {selectedTab === SelectedValuesEnum.Teams ? (
-        <TeamStatsCardsList year={selectedYear} />
+      {tab === TabValuesEnum.Teams ? (
+        <TeamStatsCardsList year={year} />
       ) : (
-        <PlayerStatsCardsList year={selectedYear} />
+        <PlayerStatsCardsList year={year} />
       )}
     </PageContainer>
   )

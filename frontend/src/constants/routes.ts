@@ -16,6 +16,12 @@ export const AUTH_ROUTES = {
   },
   STATISTICS: {
     PATH: '/statistics',
+    TEAMS: {
+      PATH: '/statistics/teams',
+    },
+    PLAYERS: {
+      PATH: 'statistics/players',
+    },
   },
   TEAMS: {
     PATH: '/teams',

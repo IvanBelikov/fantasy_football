@@ -48,7 +48,7 @@ export const MainHeader: FC<MainHeaderProps> = ({ showSubheader }) => {
                 component={Link}
                 label={'Statistics'}
                 value={TabValues.STATISTICS}
-                to={AUTH_ROUTES.STATISTICS.PATH}
+                to={AUTH_ROUTES.STATISTICS.TEAMS.PATH}
               />
               <CustomTab
                 component={Link}
