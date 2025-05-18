@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router'
+import { Navigate, Route, Routes } from 'react-router'
 
 import { PrivateRoutes } from './PrivateRoutes'
 import { lazy } from 'react'
@@ -18,6 +18,18 @@ export const AppRouter = () => {
   return (
     <Routes>
       <Route element={<MainLayout isAuth={isAuth} />}>
+        <Route
+          path="/"
+          element={
+            isAuth ? (
+              <Navigate to={AUTH_ROUTES.STATISTICS.PATH} replace />
+            ) : (
+              <Navigate to={PUBLIC_ROUTES.LOGIN.PATH} replace />
+            )
+          }
+        />
+
+        {/* AUTH ROUTES */}
         <Route element={<PrivateRoutes isAuth={isAuth} />}>
           <Route
             path={AUTH_ROUTES.STATISTICS.PATH}
@@ -33,7 +45,18 @@ export const AppRouter = () => {
             element={<EditTeamPage />}
           />
         </Route>
-        <Route path={PUBLIC_ROUTES.LOGIN.PATH} element={<LoginPage />} />
+
+        {/* PUBLIC ROUTES */}
+        <Route
+          path={PUBLIC_ROUTES.LOGIN.PATH}
+          element={
+            isAuth ? (
+              <Navigate to={AUTH_ROUTES.STATISTICS.PATH} replace />
+            ) : (
+              <LoginPage />
+            )
+          }
+        />
         <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
