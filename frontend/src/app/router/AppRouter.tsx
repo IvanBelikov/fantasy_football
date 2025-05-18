@@ -33,8 +33,8 @@ export const AppRouter = () => {
             element={<EditTeamPage />}
           />
         </Route>
-        <Route path="*" element={<NotFoundPage />} />
         <Route path={PUBLIC_ROUTES.LOGIN.PATH} element={<LoginPage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Route>
     </Routes>
   )
