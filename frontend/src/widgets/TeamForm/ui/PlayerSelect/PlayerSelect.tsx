@@ -7,8 +7,6 @@ import {
   Select,
 } from '@mui/material'
 
-import { SpecialSelect } from '../../types'
-
 // Mock players before backend implementation
 import { players } from '../../mock'
 
@@ -16,7 +14,6 @@ import type { PlayerSelectProps } from './PlayerSelect.props'
 import {
   CustomMenuItem,
   CustomListSubheader,
-  SpecialMenuItem,
   MenuProps,
 } from './PlayerSelect.styles'
 
@@ -40,15 +37,6 @@ export const PlayerSelect: FC<PlayerSelectProps> = ({
         required
         multiple
       >
-        <SpecialMenuItem divider value={SpecialSelect.All}>
-          <Checkbox size={'small'} />
-          <ListItemText
-            primary={'Select all'}
-            slotProps={{
-              primary: { variant: 'body2' },
-            }}
-          />
-        </SpecialMenuItem>
         <CustomListSubheader>Goalkeeper</CustomListSubheader>
         {players.goalkeepers.map(({ id, name }) => (
           <CustomMenuItem key={id} value={name} divider>

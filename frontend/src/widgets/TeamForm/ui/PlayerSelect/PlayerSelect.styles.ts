@@ -3,12 +3,6 @@ import { grey } from '@mui/material/colors'
 
 import styled from 'styled-components'
 
-export const SpecialMenuItem = styled(MenuItem)({
-  height: '36px',
-  backgroundColor: grey[200],
-  color: 'GrayText',
-})
-
 export const CustomMenuItem = styled(MenuItem)({
   height: '36px',
 })
