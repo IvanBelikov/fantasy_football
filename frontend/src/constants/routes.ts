@@ -20,7 +20,7 @@ export const AUTH_ROUTES = {
       PATH: '/statistics/teams',
     },
     PLAYERS: {
-      PATH: 'statistics/players',
+      PATH: '/statistics/players',
     },
   },
   TEAMS: {
