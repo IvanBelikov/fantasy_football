@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link } from 'react-router'
 import {
   ButtonGroup,
   FormControl,
@@ -18,7 +18,6 @@ import { PageContainer, LinkButton, YearSelect } from './StatsticsPage.styles'
 import type { StatisticsPageProps } from './StatisticsPage.props'
 
 export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
-  const navigate = useNavigate()
   const { year, page, setSearchParams } = useStatisticsPage()
 
   const handleChange = (event: SelectChangeEvent<string>) => {
@@ -28,17 +27,12 @@ export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
     })
   }
 
-  const handleTabClick = (value: TabValuesEnum) => {
-    navigate(`${AUTH_ROUTES.STATISTICS.PATH}/${value}`)
-  }
-
   return (
     <PageContainer>
       <ButtonGroup size={'small'}>
         <LinkButton
           component={Link}
           to={AUTH_ROUTES.STATISTICS.TEAMS.PATH}
-          onClick={() => handleTabClick(TabValuesEnum.Teams)}
           isActive={tab === TabValuesEnum.Teams}
         >
           Teams
@@ -46,7 +40,6 @@ export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
         <LinkButton
           component={Link}
           to={AUTH_ROUTES.STATISTICS.PLAYERS.PATH}
-          onClick={() => handleTabClick(TabValuesEnum.Players)}
           isActive={tab === TabValuesEnum.Players}
         >
           Players
