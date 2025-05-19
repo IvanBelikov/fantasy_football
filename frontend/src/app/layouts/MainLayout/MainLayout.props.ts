@@ -1,3 +1,3 @@
-export interface MainLayoutProps {
+export type MainLayoutProps = {
   isAuth: boolean
 }

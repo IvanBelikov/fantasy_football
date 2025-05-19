@@ -1,3 +1,3 @@
-export interface MainHeaderProps {
+export type MainHeaderProps = {
   showSubheader?: boolean
 }

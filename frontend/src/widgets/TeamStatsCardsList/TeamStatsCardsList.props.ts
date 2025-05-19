@@ -1,3 +1,3 @@
-export interface TeamStatsCardsListProps {
+export type TeamStatsCardsListProps = {
   year: number | string
 }

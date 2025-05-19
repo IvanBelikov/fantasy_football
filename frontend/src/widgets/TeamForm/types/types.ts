@@ -2,7 +2,7 @@ export enum FormModes {
   Edit = 'edit',
   Create = 'create',
 }
-export interface PlayerSelect {
+export type PlayerSelect = {
   id: number
   name: string
 }

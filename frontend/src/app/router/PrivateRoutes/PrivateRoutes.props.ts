@@ -1,3 +1,3 @@
-export interface PrivateRoutesProps {
+export type PrivateRoutesProps = {
   isAuth: boolean
 }

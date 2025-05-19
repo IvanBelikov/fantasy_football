@@ -1,11 +1,11 @@
 import type { FormModes } from './types'
 
-interface TeamFormCreateMode {
+type TeamFormCreateMode = {
   mode: FormModes.Create
   teamId?: never
 }
 
-interface TeamFormEditMode {
+type TeamFormEditMode = {
   mode: FormModes.Edit
   teamId: string | number
 }
