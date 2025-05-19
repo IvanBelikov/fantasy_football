@@ -7,7 +7,9 @@ import {
   styled,
 } from '@mui/material'
 
-interface TabButtonProps extends ButtonProps {
+import type { LinkProps } from 'react-router'
+
+interface TabButtonProps extends ButtonProps, Pick<LinkProps, 'to'> {
   isActive: boolean
 }
 
@@ -18,7 +20,7 @@ export const PageContainer = styled(Box)({
   gap: '24px',
 })
 
-export const TabButton = styled(Button, {
+export const LinkButton = styled(Button, {
   shouldForwardProp: (prop) => prop !== 'isActive',
 })<TabButtonProps>(({ theme, isActive }) => ({
   width: '110px',

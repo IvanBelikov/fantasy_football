@@ -1,5 +1,5 @@
 import type { FC } from 'react'
-import { useNavigate } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 import {
   ButtonGroup,
   FormControl,
@@ -14,7 +14,7 @@ import { AUTH_ROUTES } from '@base/constants'
 import { SearchParamsEnum, TabValuesEnum } from './types'
 import { useStatisticsPage } from './hooks'
 
-import { PageContainer, TabButton, YearSelect } from './StatsticsPage.styles'
+import { PageContainer, LinkButton, YearSelect } from './StatsticsPage.styles'
 import type { StatisticsPageProps } from './StatisticsPage.props'
 
 export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
@@ -35,18 +35,22 @@ export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
   return (
     <PageContainer>
       <ButtonGroup size={'small'}>
-        <TabButton
+        <LinkButton
+          component={Link}
+          to={AUTH_ROUTES.STATISTICS.TEAMS.PATH}
           onClick={() => handleTabClick(TabValuesEnum.Teams)}
           isActive={tab === TabValuesEnum.Teams}
         >
           Teams
-        </TabButton>
-        <TabButton
+        </LinkButton>
+        <LinkButton
+          component={Link}
+          to={AUTH_ROUTES.STATISTICS.PLAYERS.PATH}
           onClick={() => handleTabClick(TabValuesEnum.Players)}
           isActive={tab === TabValuesEnum.Players}
         >
           Players
-        </TabButton>
+        </LinkButton>
       </ButtonGroup>
       <FormControl>
         <InputLabel id={'year'} size={'small'}>
