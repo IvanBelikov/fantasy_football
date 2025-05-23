@@ -70,4 +70,5 @@ export const PlayerWithStatsSchema = z.object({
   duels: DuelsSchema,
 })
 
+export type Player = z.infer<typeof PlayerSchema>
 export type PlayerWithStats = z.infer<typeof PlayerWithStatsSchema>
