@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router'
 
 import {
   Button,
+  CircularProgress,
   FormControl,
   InputLabel,
   MenuItem,
@@ -10,6 +11,7 @@ import {
   TextField,
 } from '@mui/material'
 
+import { useCountriesArray } from '@base/entities'
 import { AUTH_ROUTES } from '@base/constants'
 
 import { PlayerSelect } from './ui/PlayerSelect'
@@ -19,6 +21,8 @@ import { ActionsContainer, CustomForm } from './TeamForm.styles'
 
 export const TeamForm: FC<TeamFormProps> = () => {
   const navigate = useNavigate()
+
+  const { data: countries } = useCountriesArray()
 
   const handleCheckPlayers = () => {
     return
@@ -42,9 +46,17 @@ export const TeamForm: FC<TeamFormProps> = () => {
           value={''}
           required
         >
-          <MenuItem value={'USA'}>USA</MenuItem>
-          <MenuItem value={'England'}>England</MenuItem>
-          <MenuItem value={'Germany'}>Germany</MenuItem>
+          {countries ? (
+            countries.map((country) => (
+              <MenuItem key={country} value={country}>
+                {country}
+              </MenuItem>
+            ))
+          ) : (
+            <MenuItem>
+              <CircularProgress />
+            </MenuItem>
+          )}
         </Select>
       </FormControl>
       <FormControl>

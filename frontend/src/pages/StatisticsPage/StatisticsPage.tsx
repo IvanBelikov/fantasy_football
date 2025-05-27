@@ -2,7 +2,9 @@ import type { FC } from 'react'
 import { Link } from 'react-router'
 import {
   ButtonGroup,
+  CircularProgress,
   FormControl,
+  InputAdornment,
   InputLabel,
   MenuItem,
   type SelectChangeEvent,
@@ -18,12 +20,12 @@ import { PageContainer, LinkButton, YearSelect } from './StatsticsPage.styles'
 import type { StatisticsPageProps } from './StatisticsPage.props'
 
 export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
-  const { year, page, setSearchParams } = useStatisticsPage()
+  const { year, setSearchParams, seasons, isFetchingSeasons } =
+    useStatisticsPage()
 
   const handleChange = (event: SelectChangeEvent<string>) => {
     setSearchParams({
       [SearchParamsEnum.Year]: event.target.value,
-      [SearchParamsEnum.Page]: page,
     })
   }
 
@@ -53,23 +55,33 @@ export const StatisticsPage: FC<StatisticsPageProps> = ({ tab }) => {
           labelId={'year'}
           label={'Year'}
           size={'small'}
-          value={year}
+          value={isFetchingSeasons ? '' : year}
           onChange={handleChange}
+          startAdornment={
+            isFetchingSeasons && (
+              <InputAdornment position={'start'}>
+                <CircularProgress size={20} />
+              </InputAdornment>
+            )
+          }
         >
-          <MenuItem value="">
-            <em>None</em>
-          </MenuItem>
-          <MenuItem value={'2000'}>2000</MenuItem>
-          <MenuItem value={'2001'}>2001</MenuItem>
-          <MenuItem value={'2002'}>2002</MenuItem>
+          {isFetchingSeasons ? (
+            <MenuItem>Loading...</MenuItem>
+          ) : (
+            seasons?.map((season) => (
+              <MenuItem key={season} value={season}>
+                {season}
+              </MenuItem>
+            ))
+          )}
         </YearSelect>
       </FormControl>
-
-      {tab === TabValuesEnum.Teams ? (
-        <TeamStatsCardsList year={year} />
-      ) : (
-        <PlayerStatsCardsList year={year} />
-      )}
+      {year &&
+        (tab === TabValuesEnum.Teams ? (
+          <TeamStatsCardsList year={year} />
+        ) : (
+          <PlayerStatsCardsList year={year} />
+        ))}
     </PageContainer>
   )
 }

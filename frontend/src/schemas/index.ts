@@ -1,2 +1,18 @@
-export type { Team, Country, TeamWithStats } from './team.schema'
-export type { PlayerWithStats, Player } from './player.schema'
+export {
+  TeamWithStatsSchema,
+  type Team,
+  type TeamWithStats,
+} from './team.schema'
+
+export {
+  PlayerWithStatsSchema,
+  type PlayerWithStats,
+  type Player,
+} from './player.schema'
+
+export {
+  SeasonSchema,
+  type SeasonType,
+} from './season.schema'
+
+export { type Country, CountrySchema } from './country.schema'

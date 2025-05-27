@@ -10,4 +10,7 @@ export default defineConfig({
       '@base': path.resolve(__dirname, './src'),
     },
   },
+  server: {
+    port: 4200,
+  },
 })
