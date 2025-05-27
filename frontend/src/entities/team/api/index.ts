@@ -1,0 +1,1 @@
+export { getTeamsByYear } from './api'

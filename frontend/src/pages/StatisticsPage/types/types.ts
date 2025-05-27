@@ -1,6 +1,5 @@
 export enum SearchParamsEnum {
   Year = 'year',
-  Page = 'page',
 }
 
 export enum TabValuesEnum {

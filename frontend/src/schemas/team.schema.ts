@@ -1,10 +1,6 @@
 import { z } from 'zod'
 
-const CountrySchema = z.object({
-  name: z.string(),
-  code: z.string(),
-  flag: z.string().url(),
-})
+import { CountrySchema } from './country.schema'
 
 const LeagueSchema = z.object({
   id: z.string(),
@@ -44,4 +40,3 @@ export const TeamWithStatsSchema = z.object({
 
 export type TeamWithStats = z.infer<typeof TeamWithStatsSchema>
 export type Team = z.infer<typeof TeamSchema>
-export type Country = z.infer<typeof CountrySchema>

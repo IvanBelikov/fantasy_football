@@ -1,11 +1,23 @@
 import { z } from 'zod'
 
+export const GetPlayersByYearQuerySchema = z.object({
+  year: z.string().regex(/^\d{4}$/, 'Year must be a 4-digit string'),
+  page: z.string().optional(),
+  per_page: z.string().optional(),
+})
+
+const BirthSchema = z.object({
+  date: z.string().nullable(),
+  place: z.string().nullable(),
+  country: z.string().nullable(),
+})
+
 const PlayerSchema = z.object({
   id: z.string(),
   name: z.string(),
   age: z.number().nullable(),
   photo: z.string().url(),
-  birth: z.any().nullable(),
+  birth: BirthSchema,
   height: z.string().nullable(),
   weight: z.string().nullable(),
 })

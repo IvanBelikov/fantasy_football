@@ -15,6 +15,7 @@ interface TabButtonProps extends ButtonProps, Pick<LinkProps, 'to'> {
 
 export const PageContainer = styled(Box)({
   marginTop: '32px',
+  marginBottom: '32px',
   display: 'flex',
   flexDirection: 'column',
   gap: '24px',

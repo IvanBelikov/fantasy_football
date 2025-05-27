@@ -1,0 +1,1 @@
+export { extractAvaliableSeasons } from './extractAvaliableSeasons'

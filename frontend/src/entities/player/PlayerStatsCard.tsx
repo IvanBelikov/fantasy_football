@@ -5,6 +5,7 @@ import { ImageNotSupported } from '@mui/icons-material'
 
 import { StatsTable } from '@base/ui'
 import { GRID_SIZE } from '@base/constants'
+import { convertPlayerBirthDate } from '@base/utils'
 
 import {
   cardsHeader,
@@ -44,7 +45,9 @@ export const PlayerStatsCard: FC<PlayerWithStatsProps> = ({ stats }) => {
               Age: {stats.player.age}
             </Typography>
             <Typography variant={'subtitle2'} color={'textSecondary'}>
-              Born: {stats.player.birth}
+              Born:{' '}
+              {stats.player.birth.date &&
+                convertPlayerBirthDate(stats.player.birth.date)}
             </Typography>
             <Typography variant={'subtitle2'} color={'textSecondary'}>
               Height: {stats.player.height}

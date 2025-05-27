@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material'
+import { Box, Grid } from '@mui/material'
 import styled from 'styled-components'
 
 export const CustomGrid = styled(Grid)(({ theme }) => ({
@@ -7,3 +7,10 @@ export const CustomGrid = styled(Grid)(({ theme }) => ({
     justifyContent: 'flex-start',
   },
 }))
+
+export const LoadMoreContainer = styled(Box)({
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+})
