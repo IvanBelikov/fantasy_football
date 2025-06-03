@@ -1,1 +1,1 @@
-export { useCountries, useCountriesArray } from './hooks/useCountries'
+export { useCountries, useCountriesArray } from './hooks'
