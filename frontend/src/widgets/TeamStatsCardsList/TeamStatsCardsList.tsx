@@ -12,8 +12,6 @@ export const TeamStatsCardsList: FC<TeamStatsCardsListProps> = ({ year }) => {
   const { data, isLoading, isFetchingNextPage, fetchNextPage, hasNextPage } =
     useTeamsByYear(year)
 
-  const fetchMorePlayers = () => fetchNextPage()
-
   if (isLoading) {
     return <FSLoader />
   }
@@ -33,7 +31,7 @@ export const TeamStatsCardsList: FC<TeamStatsCardsListProps> = ({ year }) => {
           (isFetchingNextPage ? (
             <CircularProgress />
           ) : (
-            <Button onClick={fetchMorePlayers} variant={'outlined'}>
+            <Button onClick={() => fetchNextPage()} variant={'outlined'}>
               Load more
             </Button>
           ))}
