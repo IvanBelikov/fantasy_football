@@ -6,15 +6,18 @@ import { extractAvaliableSeasons } from '../utils'
 import { getSeasons } from '../api'
 import { QUERY_KEYS } from '@base/constants'
 
+export const QUERY_PARAMS = {
+  queryKey: [QUERY_KEYS.SEASONS],
+  queryFn: getSeasons,
+}
+
 export const useSeasons = () =>
   useQuery<SeasonType[]>({
-    queryKey: [QUERY_KEYS.SEASONS],
-    queryFn: getSeasons,
+    ...QUERY_PARAMS,
   })
 
 export const useSeasonsArray = () =>
   useQuery<SeasonType[], Error, number[]>({
-    queryKey: [QUERY_KEYS.SEASONS],
-    queryFn: getSeasons,
+    ...QUERY_PARAMS,
     select: extractAvaliableSeasons,
   })
